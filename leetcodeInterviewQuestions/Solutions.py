@@ -293,3 +293,24 @@ class Solution(object):
                         dp[i][j] = dp[i - 2][j]
 
         return dp[-1][-1]
+
+####################################################################################################################################
+# Question 11 - Container with Most Water
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l=m=0
+        r=len(height)-1
+        while l<r:
+            if height[l]>height[r]:
+                a=height[r]*(r-l)
+                if a>m:
+                    m=a
+                r-=1
+
+            else:
+                a = height[l]*(r-l)
+                if a>m:
+                    m=a
+                l+=1
+        return m
