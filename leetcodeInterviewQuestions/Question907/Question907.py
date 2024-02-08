@@ -11,3 +11,8 @@ class Solution:
                 ans = (ans + arr[i] * (i - left) * (right - i))  % M
             stack.append(right)
         return ans
+
+
+
+#define a function that sort numbers in a list
+def sortlist(list)

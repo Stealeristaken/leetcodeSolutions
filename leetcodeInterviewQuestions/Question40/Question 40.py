@@ -8,7 +8,7 @@ class Solution:
                 if i>ind and candidates[i]==candidates[i-1]:
                     continue
                 if candidates[i]>target:
-                    break
+                    breakw
                 op.append(candidates[i])
                 solve(i+1,target-candidates[i])
                 op.pop()

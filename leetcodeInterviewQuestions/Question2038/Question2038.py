@@ -25,4 +25,4 @@ class Solution:
             totalB += currB - 2
 
         # Compare the total points for 'A' and 'B' to determine the winner.
-        return totalA > totalB  # If 'A' has more points, return True (A wins); otherwise, return False (B wins or it's a tie).
+        return totalA > totalB  # If 'A' has more points, return True (A wins); otherwise, return False (B wins or it's a tie).mk

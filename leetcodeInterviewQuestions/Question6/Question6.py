@@ -14,3 +14,4 @@ class Solution:
             apply_to_result(i, row)
 
         return "".join(result_rows)
+w
