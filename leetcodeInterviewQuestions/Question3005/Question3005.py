@@ -40,3 +40,22 @@ class Solution:
 
         return maxVal * freqs[0]
 
+#### defaultdict is all you need ####
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        from collections import defaultdict
+
+        counts = defaultdict(int)
+        max_count = 0
+        
+        for num in nums:
+            counts[num] += 1
+            max_count = max(max_count, counts[num])
+        
+        ans = 0
+        for v in counts.values():
+            if v == max_count:
+                ans += v
+
+        return ans
+        
