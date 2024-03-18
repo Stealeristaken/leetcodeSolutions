@@ -29,3 +29,22 @@ class Solution:
                 arrow += 1
                 end = points[i][1]
         return arrow
+  
+  
+  
+###### More Memory Efficiecnt Solution For Taking Up Your Rankings 
+
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        points.sort(key=lambda x: x[1])
+        print(points)
+        count = 0
+        while len(points) > 0:
+            end = points[0][1]
+            count += 1
+            for i in range(len(points) - 1, -1, -1):
+                if points[i][0] <= end:
+                    points.pop(i)
+
+
+        return count
