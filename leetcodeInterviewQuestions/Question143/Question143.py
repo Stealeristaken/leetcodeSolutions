@@ -81,3 +81,30 @@ class Solution:
             prev = curr
             curr = nextp
         return prev
+  
+  
+###########################   
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reorderList(self, head: Optional[ListNode]) -> None:
+        """
+        Do not return anything, modify head in-place instead.
+        """
+        if head.next is not None:
+            temp = head
+            while temp.next is not None:
+                tempprev = temp
+                temp = temp.next
+            nexthead = head.next
+            if nexthead != temp:
+                tempprev.next = None
+                head.next = temp
+                temp.next = nexthead
+                self.reorderList(nexthead)
+    
+        
