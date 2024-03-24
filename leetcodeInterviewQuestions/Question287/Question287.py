@@ -10,3 +10,17 @@ class Solution:
                     nums[i], nums[n-1] = nums[n-1], nums[i]
             i += 1
         return -1
+    
+    
+    
+    
+############################################################################################################        
+
+import sys 
+from collections import Counter 
+from json import loads 
+stdin = open('user.in', 'r')
+sys.stdout = open('user.out', 'w')
+for nums in map(loads, stdin):
+    print(Counter(nums).most_common(1)[0][0])
+            
