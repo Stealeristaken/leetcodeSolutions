@@ -33,3 +33,20 @@ class Solution:
                 r += 1
         
         return count
+  
+######## Another Solution ########
+  
+class Solution:
+    def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
+        result = left = 0
+        right = [-1]*2
+        for i, x in enumerate(nums):
+            if not (minK <= x <= maxK):
+                left = i+1
+                continue
+            if x == minK:
+                right[0] = i
+            if x == maxK:
+                right[1] = i
+            result += max(min(right)-left+1, 0)
+        return result        
