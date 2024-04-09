@@ -9,3 +9,11 @@ class Solution:
                     tickets[i]-=1
                     res+=1            
         return res
+  
+  
+  
+#########
+
+class Solution:
+    def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+        return sum(min(t, tickets[k]) for t in tickets[:k]) + tickets[k] + sum(min(t, tickets[k] - 1) for t in tickets[k+1:])
