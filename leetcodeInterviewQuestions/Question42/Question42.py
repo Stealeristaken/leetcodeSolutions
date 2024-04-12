@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def trap(self, height: List[int]) -> int:
         left = 0
@@ -19,3 +20,14 @@ class Solution:
                 ans -= height[right]
                 right-=1
         return ans
+    
+    
+    
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        rainwater = 0 
+        for i in range(1, len(height)):
+            min_height = min( max(height[0:i]), max(height[i:len(height)]))
+            if((min_height - height[i]) > 0):
+                rainwater += (min_height - height[i])
+        return rainwater
