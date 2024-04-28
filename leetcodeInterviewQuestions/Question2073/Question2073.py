@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
         res =0 
