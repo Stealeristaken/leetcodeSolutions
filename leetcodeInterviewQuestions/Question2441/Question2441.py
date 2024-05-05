@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def findMaxK(self, nums: List[int]) -> int:
         nums.sort(reverse=True)
