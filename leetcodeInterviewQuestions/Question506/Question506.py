@@ -17,3 +17,32 @@ class Solution:
                 else:
                     ans.append("Bronze Medal")
         return ans
+  
+  
+  
+##############   ### 
+
+
+import heapq
+class Solution:
+    def findRelativeRanks(self, score: List[int]) -> List[str]:
+        new=[i for i in range(len(score))]
+        x=1
+        for _ in range(len(score)):
+            indx=score.index(max(score))
+            score[indx]=-1
+            if x==1:
+                new[indx]='Gold Medal'
+            elif x==2:
+                new[indx]='Silver Medal'
+            elif x==3:
+                new[indx]='Bronze Medal'
+            else:
+                new[indx]=str(x)
+            x+=1
+        
+        return new
+        
+
+
+        
