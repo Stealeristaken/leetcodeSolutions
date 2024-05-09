@@ -23,5 +23,17 @@ class Solution:
   ######################
   
   
-  
+class Solution:
+    def maximumHappinessSum(self, happiness: List[int], k: int) -> int:
+        op = 0
+        happiness = sorted(happiness,reverse = True)
+        j = 0
+        for i in range(k):
+            c = happiness[j]-i
+            if c >0:
+                op += c
+            else:
+                break
+            j+=1
+        return(op)
   
