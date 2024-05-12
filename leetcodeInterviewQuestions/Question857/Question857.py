@@ -51,5 +51,8 @@ class Solution:
             heapq.heappush(heap, -workers[i][1])
             quality = -heapq.heappop(heap)
             total_quality -= quality
+            
+            
+            
             res = min(res, ratio*total_quality)
         return res
