@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
         count=0
@@ -19,3 +21,20 @@ class Solution:
             minus=min([minus,tmp-(edge[0]^k)-(edge[1]^k),tmp-edge[1]-edge[0]])
           sum-=minus
         return sum
+
+##################################################
+
+
+class Solution:
+    def maximumValueSum(self, nums: List[int], k: int, edges: List[List[int]]) -> int:
+        s = sum(nums)
+        for i in range(len(nums)):
+            nums[i] = (k^nums[i]) - nums[i]
+        nums.sort(reverse=True)
+
+        for j in range(1,len(nums),2):
+            if nums[j] + nums[j-1] > 0:
+                s += nums[j] + nums[j-1] 
+            else:
+                return s
+        return s
