@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def beautifulSubsets(self, nums: List[int], k: int) -> int:
         # brute force: generate all subsets . how to compare absolute difference? use an additional array of size 1000
@@ -25,3 +27,22 @@ class Solution:
             return subsetCount
 
         return dfsBack(0, [], [0 for i in range(max(nums)+1)])
+  
+  
+######################################
+class Solution:
+    def beautifulSubsets(self, nums: List[int], k: int) -> int:
+        
+        def dfs(i,tmp):
+            if len(tmp) > 0:
+                self.count += 1
+            
+            for j in range(i,len(nums)):
+                if nums[j] - k not in tmp:
+                    dfs(j + 1,tmp | {nums[j]})
+
+        self.count = 0
+        nums.sort()
+        dfs(0,set())
+
+        return self.count
