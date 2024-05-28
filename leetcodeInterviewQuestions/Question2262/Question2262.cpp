@@ -49,3 +49,26 @@ public:
             return tot_in_which_each_alphabet_prsent;
       }
 };
+
+class Solution
+{
+public:
+      long long appealSum(string s)
+      {
+            ios_base::sync_with_stdio(false);
+            cin.tie(nullptr);
+            cout.tie(nullptr);
+            long long res = 0;
+            vector<int> list(26, -1);
+            int size = s.size();
+            long long sum = 0;
+            for (int i = 0; i < size; i++)
+            {
+                  int &a = list[s[i] - 'a'];
+                  sum += i - a;
+                  res += sum;
+                  a = i;
+            }
+            return res;
+      }
+};
