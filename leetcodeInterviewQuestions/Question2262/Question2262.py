@@ -23,3 +23,4 @@ class Solution:
             last_pos[cv] = idx
 
         return total        
+    

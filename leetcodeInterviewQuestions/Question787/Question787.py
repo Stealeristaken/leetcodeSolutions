@@ -1,4 +1,6 @@
+from typing import List
 class Solution:
+
       def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
         dp = [float('inf')] * n
         dp[src] = 0
