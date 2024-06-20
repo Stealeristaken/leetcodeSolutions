@@ -1,3 +1,5 @@
+import math
+
 class Solution:
     def judgeSquareSum(self, c: int) -> bool:
         first = 0
