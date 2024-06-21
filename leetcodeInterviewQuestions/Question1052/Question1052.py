@@ -15,4 +15,24 @@ class Solution:
         grumpy = grumpy[:maxSum[1]] + [0] * minutes + grumpy[maxSum[2]:]
         return sum([customer for i, customer in enumerate(customers) if not grumpy[i]])
   
-  
+########################## More memory efficient solution ##########################      
+
+class Solution:
+    def maxSatisfied(self, c: List[int], g: List[int], m: int) -> int:
+        tot=0
+        lc=len(c)
+        for i in range(lc):
+            if g[i]==0:
+                tot+=c[i]
+                c[i]=0
+        t2=0
+        for i in range(m):
+            if c[i]>0:
+                t2+=c[i]
+        tmx=t2
+        for i in range(1,lc-m+1):
+            t2-=c[i-1]
+            t2+=c[i+m-1]
+            if t2>tmx:
+                tmx=t2
+        return tot+tmx
