@@ -25,3 +25,33 @@ class Solution:
             temp.sort()
             lst[i]=temp
         return lst
+  
+  
+  
+class Solution:
+    def getAncestors(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+        ans = [[] for _ in range(n)]
+        incoming=defaultdict(list)
+        for s,d in edges:
+            incoming[d].append(s)
+        def bfs(index,incoming_array):
+            queue=deque()
+            array=set()
+            visited=set()
+            for i in incoming_array:
+                queue.append(i)
+                array.add(i)
+                visited.add(i)
+            while queue:
+                ele=queue.popleft()
+                for neigh in incoming[ele]:
+                    if neigh not in visited:
+                        queue.append(neigh)
+                        visited.add(neigh)
+                        array.add(neigh)
+            return sorted(array)
+        for i in range(n):
+            if incoming[i]:
+                ans[i] = bfs(i,incoming[i])
+        
+        return ans
