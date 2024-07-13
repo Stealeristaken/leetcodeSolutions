@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def survivedRobotsHealths(self, positions: List[int], healths: List[int], directions: str) -> List[int]:
         items = sorted(zip(positions, healths, directions, range(len(positions))))
