@@ -29,3 +29,4 @@ class Solution:
         node.right = self.buildBST(nodes, mid+1, right)
         return node
             
+            
