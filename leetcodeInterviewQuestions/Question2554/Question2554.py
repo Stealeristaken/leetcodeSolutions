@@ -1,16 +1,11 @@
 class Solution:
     def maxCount(self, banned: List[int], n: int, maxSum: int) -> int:
-        
-        nums_used = 0
-        accumulated_sum = 0
-        for i in range(1,n+1):
-            if i not in banned:
-                if accumulated_sum+i <= maxSum:
-                    accumulated_sum+=i
-                    nums_used+=1
-                else:
-                    break
-        return     nums_used    
-
-
-        
+        ans = 0
+        temp = 0
+        banned = set(banned)
+        for i in range(1, n + 1):
+            if temp >= maxSum or temp + i > maxSum: break
+            elif i not in banned:
+                temp += i
+                ans += 1
+        return ans
